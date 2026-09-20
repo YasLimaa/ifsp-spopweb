@@ -20,27 +20,47 @@ function exibirContato() {
 }
 
 function exibirUsuario() {
-    return `
-        <h1>Usuário</h1>
-		<p>teste</p>
-    `
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then(json => {
+            document.getElementById('app').innerHTML = `
+                <h1>Usuário</h1`;
+                for (let i = 0; i < json.length; i++) {
+                    document.getElementById('app').innerHTML += `
+                    <p>Id:${json[i].id}</p>
+                    <p>Name: ${json[i].name}</p> 
+            `;
+        }});
 }
 
 async function exibirPost() {
-    // Coloca uma mensagem visual de "carregando" enquanto espera a API externa
-    const container = document.getElementById('app');
 
     fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
-        .then((json) => console.log(json));
-
+        .then(json => {
+            document.getElementById('app').innerHTML = `
+                <h1>Post</h1> `;
+                for (let i = 0; i < json.length; i++) {
+                    document.getElementById('app').innerHTML += `
+                    <p>Title: ${json[i].title}</p>
+                    <p>Body: ${json[i].body}</p><br>
+            `;
+        }});
 }
 
 function exibirPhotos() {
-    return `
-        <h1>Photos</h1>
-		<p>teste</p>
-    `
+
+    fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
+        .then((response) => response.json())
+        .then(json => {
+            document.getElementById('app').innerHTML = `
+                <h1>Photos</h1>`;
+                for (let i = 0; i < json.length; i++) {
+                    document.getElementById('app').innerHTML += `
+                    <p>Title: ${json[i].title}</p>
+                    <p>URL: ${json[i].url}</p><br>
+            `;
+        }});
 }
 
 const rotas = {

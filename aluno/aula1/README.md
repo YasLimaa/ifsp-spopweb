@@ -106,7 +106,10 @@ Consumindo os respectivos `endpoints` especificados na API e manipulando o DOM p
 
 Exemplos de uso: https://jsonplaceholder.typicode.com/guide/
 
-Utilize `fetch`, `then` ou `async`/`await`.
+Utilize: 
+`fetch` -> realiza requisições HTTP
+`then`  -> utilizado para encadear operações e acessar o resultado assim que a Promise for resolvida 
+`async`/`await`  ->
 
 # 4.2 Modularização
 
